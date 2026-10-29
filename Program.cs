@@ -21,7 +21,7 @@ class BankAccount
 
     public BankAccount()
     {
-    // TODO
+        accountNumber = GenerateNumber();
     }
     public void SetBalance(decimal value)
     {
