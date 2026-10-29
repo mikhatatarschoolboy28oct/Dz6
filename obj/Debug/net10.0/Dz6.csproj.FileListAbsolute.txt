@@ -1,0 +1,14 @@
+/Users/mihailsmirnov/Dz6/bin/Debug/net10.0/Dz6
+/Users/mihailsmirnov/Dz6/bin/Debug/net10.0/Dz6.deps.json
+/Users/mihailsmirnov/Dz6/bin/Debug/net10.0/Dz6.runtimeconfig.json
+/Users/mihailsmirnov/Dz6/bin/Debug/net10.0/Dz6.dll
+/Users/mihailsmirnov/Dz6/bin/Debug/net10.0/Dz6.pdb
+/Users/mihailsmirnov/Dz6/obj/Debug/net10.0/Dz6.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mihailsmirnov/Dz6/obj/Debug/net10.0/Dz6.AssemblyInfoInputs.cache
+/Users/mihailsmirnov/Dz6/obj/Debug/net10.0/Dz6.AssemblyInfo.cs
+/Users/mihailsmirnov/Dz6/obj/Debug/net10.0/Dz6.csproj.CoreCompileInputs.cache
+/Users/mihailsmirnov/Dz6/obj/Debug/net10.0/Dz6.dll
+/Users/mihailsmirnov/Dz6/obj/Debug/net10.0/refint/Dz6.dll
+/Users/mihailsmirnov/Dz6/obj/Debug/net10.0/Dz6.pdb
+/Users/mihailsmirnov/Dz6/obj/Debug/net10.0/Dz6.genruntimeconfig.cache
+/Users/mihailsmirnov/Dz6/obj/Debug/net10.0/ref/Dz6.dll
