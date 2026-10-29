@@ -1,84 +1,103 @@
 ﻿using System;
 
-enum AccountType
+class Building
 {
-    Текущий,
-    Сберегательный,
-    Кредитный
-}
+    
+    private static int lastNumber = 0;
 
-class BankAccount
-{
-    private static int nextNumber = 1000;
+    private int number;
+    private double height;
+    private int floors;
+    private int apartments;
+    private int entrances;
 
-    private int accountNumber;
-    private decimal balance;
-    private AccountType accountType;
-
+    
     private static int GenerateNumber()
     {
-        return ++nextNumber;
+        return ++lastNumber;
     }
 
-    public BankAccount()
+    public Building()
     {
-        accountNumber = GenerateNumber();
-    }
-
-    public void SetBalance(decimal value)
-    {
-        balance = value;
-    }
-
-    public void SetAccountType(AccountType type)
-    {
-        accountType = type;
-    }
-
-    public int GetAccountNumber()
-    {
-        return accountNumber;
-    }
-
-    public decimal GetBalance()
-    {
-        return balance;
-    }
-
-    public AccountType GetAccountType()
-    {
-        return accountType;
+        number = GenerateNumber();
     }
 
     
-    public bool Deposit(decimal amount)
+    public void SetHeight(double value)
     {
-        if (amount <= 0)
-        {
-            return false;
-        }
+        height = value;
+    }
 
-        balance += amount;
-        return true;
+    public void SetFloors(int value)
+    {
+        floors = value;
+    }
+
+    public void SetApartments(int value)
+    {
+        apartments = value;
+    }
+
+    public void SetEntrances(int value)
+    {
+        entrances = value;
     }
 
     
-    public bool Withdraw(decimal amount)
+    public int GetNumber()
     {
-        if (amount <= 0 || amount > balance)
-        {
-            return false;
-        }
+        return number;
+    }
 
-        balance -= amount;
-        return true;
+    public double GetHeight()
+    {
+        return height;
+    }
+
+    public int GetFloors()
+    {
+        return floors;
+    }
+
+    public int GetApartments()
+    {
+        return apartments;
+    }
+
+    public int GetEntrances()
+    {
+        return entrances;
+    }
+
+    
+    public double GetFloorHeight()
+    {
+        if (floors == 0) return 0;
+        return height / floors;
+    }
+
+    public double GetApartmentsPerEntrance()
+    {
+        if (entrances == 0) return 0;
+        return (double)apartments / entrances;
+    }
+
+    public double GetApartmentsPerFloor()
+    {
+        if (entrances == 0 || floors == 0) return 0;
+        return (double)apartments / entrances / floors;
     }
 
     public void Print()
     {
-        Console.WriteLine($"Номер счета: {accountNumber}");
-        Console.WriteLine($"Баланс:      {balance:F2}");
-        Console.WriteLine($"Тип счета:   {accountType}");
+        Console.WriteLine($"Здание №{number}");
+        Console.WriteLine($"Высота:                 {height:F1} м");
+        Console.WriteLine($"Этажность:              {floors}");
+        Console.WriteLine($"Квартир всего:          {apartments}");
+        Console.WriteLine($"Подъездов:              {entrances}");
+        Console.WriteLine($"Высота этажа:           {GetFloorHeight():F2} м");
+        Console.WriteLine($"Квартир в подъезде:     {GetApartmentsPerEntrance():F0}");
+        Console.WriteLine($"Квартир на этаже:       {GetApartmentsPerFloor():F0}");
         Console.WriteLine();
     }
 }
@@ -89,25 +108,19 @@ class Program
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        BankAccount acc = new BankAccount();
-        acc.SetBalance(1000m);
-        acc.SetAccountType(AccountType.Текущий);
-        Console.WriteLine("Начальное состояние:");
-        acc.Print();
+        Building b1 = new Building();
+        b1.SetHeight(27);
+        b1.SetFloors(9);
+        b1.SetApartments(108);
+        b1.SetEntrances(3);
 
-        acc.Deposit(500m);
-        Console.WriteLine("После пополнения на 500:");
-        acc.Print();
+        Building b2 = new Building();
+        b2.SetHeight(45);
+        b2.SetFloors(15);
+        b2.SetApartments(240);
+        b2.SetEntrances(4);
 
-        if (acc.Withdraw(300m))
-            Console.WriteLine("Снято 300:");
-        else
-            Console.WriteLine("Снятие 300 отклонено:");
-        acc.Print();
-
-        bool ok = acc.Withdraw(5000m);
-        Console.WriteLine(ok ? "Снято 5000:" : "Снятие 5000 отклонено (недостаточно средств):");
-        acc.Print();
+        b1.Print();
+        b2.Print();
     }
 }
-
