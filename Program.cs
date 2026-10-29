@@ -9,18 +9,23 @@ enum AccountType
 
 class BankAccount
 {
-    private string accountNumber;
+    private static int nextNumber=1000;
+    private int accountNumber;
     private decimal balance;
     private AccountType accountType; 
 
+    private static int GenerateNumber()
+    {
+        return ++nextNumber;
+    }
+
+    public BankAccount()
+    {
+    // TODO
+    }
     public void SetBalance(decimal value)
     {
         balance=value;
-    }
-
-    public void SetAccountNumber(string number)
-    {
-        accountNumber=number;
     }
 
     public void SetAccountType(AccountType type)
@@ -33,7 +38,7 @@ class BankAccount
         return balance;
     }
 
-    public string GetAccountNumber()
+    public int GetAccountNumber()
     {
         return accountNumber;
     }
@@ -43,11 +48,13 @@ class BankAccount
         return accountType;
     }
 
+
     public void Print()
     {
         Console.WriteLine($"Баланс:{balance:F2}");
         Console.WriteLine($"Номер счета:{accountNumber}");
         Console.WriteLine($"Тип счета:{accountType}");
+        Console.WriteLine();
 
 
     }
@@ -57,16 +64,16 @@ class Program
 {
     static void Main()
     {
-        BankAccount account = new BankAccount();
-        account.SetBalance(122313.03m);
-        account.SetAccountNumber("13278903499");
-        account.SetAccountType(AccountType.Сберегательный);
-        account.Print();
-        
-        Console.WriteLine();
-        Console.WriteLine("Чтение через методы доступа:");
-        Console.WriteLine("Номер: " + account.GetAccountNumber());
-        Console.WriteLine("Баланс: " + account.GetBalance());
-        Console.WriteLine("Тип: " + account.GetAccountType());
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        BankAccount a1 = new BankAccount();
+        a1.SetBalance(15250.75m);
+        a1.SetAccountType(AccountType.Сберегательный);
+
+        BankAccount a2 = new BankAccount();
+        a2.SetBalance(500m);
+        a2.SetAccountType(AccountType.Кредитный);
+
+        a1.Print();
+        a2.Print();
     }
 }

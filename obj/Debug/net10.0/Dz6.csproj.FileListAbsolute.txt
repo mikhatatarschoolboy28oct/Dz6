@@ -12,3 +12,4 @@
 /Users/mihailsmirnov/Dz6/obj/Debug/net10.0/Dz6.pdb
 /Users/mihailsmirnov/Dz6/obj/Debug/net10.0/Dz6.genruntimeconfig.cache
 /Users/mihailsmirnov/Dz6/obj/Debug/net10.0/ref/Dz6.dll
+/Users/mihailsmirnov/Dz6/obj/Debug/net10.0/Dz6.sourcelink.json
